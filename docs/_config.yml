@@ -18,21 +18,50 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Brad D. Evans
+email: brad.evans0925@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Everything on this site is my attempt to gain a deeper understanding of software architecture and design patterns,
+  specifically in the context of game engines and graphics programming.
+  From entry point to UX, I strive to absorb as much as I can.
+  I best learn by spinning up demo or test projects and adapting them
+  to get a feel of a development concept and why it works the way it does.
+  I also build small apps that help me with my day job, or make my personal life easier.
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: brad_e0925
+github_username:  bde-dev
 
 # Build settings
-theme: minima
+remote_theme: bde-dev/moonwalk
+
+theme_config:
+  appearance: "dark" # can be "light", "dark" or "auto"
+  appearance_toggle: true # if appearance can be switched by user
+  back_home_text: "Home" # customize text for homepage link in post layout
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: true # show blog description
+  show_navbar: true # show horizontal navbar
+  show_footer: true # show footer links in home page,add in _data/home.yml
+  show_copyright: false # show copyright notice in footer
+  # following keys are using to create home layout
+  show_projects: true # show projects as cards, add in _data/home.yml
+  show_blog: true # show blog posts added in _posts
+  show_old_projects: false # show old projects as cards, add in _data/home.yml
+  show_misc_list: false # show generic vertical list for misc details, add _data/home.yml
+  show_reading_time: true # show number of words and reading time in the blog posts
+  show_tags: true # show tags in a blog posts
+  # options for "home" page
+  home:
+    title_projects: Projects
+    title_misc_list: Details
+    title_blog: Blog
+    title_old_projects: Old Projects
+
 plugins:
   - jekyll-feed
+  - jekyll-target-blank
 
 # Exclude from processing.
 # The following items will not be processed, by default.

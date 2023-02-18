@@ -1,0 +1,104 @@
+navbar_entries:
+  #- title: About
+  #  url: about
+
+  - title: Blog
+    url: blog
+
+  - title: Projects
+    url: https://bde-dev.github.io
+
+  - title: GitHub
+    url: https://www.github.com/bde-dev/
+
+project_entries:
+  #- title: Springfield
+  #  url: unity-play-link
+  #  desc: Demo sandbox showcasing fundamental Unity concepts and practices.
+  #  highlight: Unity / C#
+
+  - title: OpenGL
+    url: https://github.com/bde-dev/OpenGL/
+    desc: Sandbox and testing environment documenting my journey through OpenGL graphics programming.
+    highlight: C++ / GLSL
+
+  #- title: Element Aligner
+  #  url: repo-link(check-im-allowed)
+  #  desc: Small-scale beskope app designed to help TCS roll-out engineers and testers configure display systems.
+  #  highlight: C#
+
+  - title: Unity-blackjack
+    url: https://play.unity.com/mg/other/webgl-builds-302043
+    desc: Game of Blackjack written from scratch in Unity.
+    highlight: Unity / C#
+
+  - title: NetworkApp
+    url: https://github.com/bde-dev/NetworkApp/
+    desc: Small C# Server / Client app designed to be used alongside Unity apps to demonstrate System.Net.Sockets as an IPC solution for Unity.
+    highlight: Unity / C#
+
+  - title: Unity-Socket-Test
+    url: https://github.com/bde-dev/Unity-socket-test/
+    desc: Small Unity project paired with the C# NetworkApp to demonstrate System.Net.Sockets as an IPC solution for Unity.
+    highlight: Unity / C#
+
+old_project_entries:
+  - title: Soopr
+    url: https://www.soopr.co
+    desc: Delight your readers - add beautiful share and like buttons easily to your websites 
+    highlight: NEW
+
+  - title: Cookie
+    url: https://github.com/abhinavs/cookie
+    desc: An open source landing website with supporting pages and integrated blog
+
+  - title: Moonwalk
+    url: https://github.com/abhinavs/moonwalk
+    desc: A fast and minimalist Jekyll blog theme with clean dark mode
+
+  - title: Humangous
+    url: https://www.humangous.co
+    desc: The better people know you, the better they collaborate
+
+footer_entries:
+  - title: github
+    url: https://github.com/bde-dev
+
+  #- title: homepage
+  #  url: https://bde-dev.github.io
+
+  #- title: LinkedIn
+  #  url: LinkedIn
+
+misc_entries:
+  - title: this is an example vertical list
+    url: false
+
+  - title: you can show or hide using a boolean flag in _config.yml
+    url: false
+
+  - title: and you can add data in _data/home.yml
+    url: false
+
+  - title: Blog posts
+    post_list: true
+    url: false
+
+  - title: moonwalk on the Internet
+    url: false
+    entries:
+      - title: on Github
+        url: https://github.com/abhinavs/moonwalk
+
+      - title: originally built for abhinav's homepage
+        url: https://www.abhinav.co
+
+      - title: this list is scalable and can be nested
+        url: false
+        entries:
+          - title: this is nested inside a nested list
+            url: false
+
+          - title: it is easy to use, see _data/home.yml to see how to configure it.
+            url: false
+
