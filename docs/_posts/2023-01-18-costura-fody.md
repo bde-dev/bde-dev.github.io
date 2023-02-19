@@ -44,8 +44,7 @@ One result mentioned [Costura.Fody](https://www.nuget.org/packages/Costura.Fody/
 
 - Did some skimming of the [README](https://github.com/Fody/Costura/blob/develop/readme.md) on GitHub, and landed on a very simple FodyWeavers.XML:
 {% highlight xml %}
-<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
 	<Costura CreateTemporaryAssemblies='true'
 			 IncludeDebugSymbols='false'>
 		<Unmanaged64Assemblies>
