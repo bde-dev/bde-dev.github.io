@@ -5,8 +5,8 @@ navbar_entries:
   - title: Blog
     url: blog
 
-  - title: Projects
-    url: https://bde-dev.github.io
+  #- title: Projects
+  #  url: https://bde-dev.github.io
 
   - title: GitHub
     url: https://www.github.com/bde-dev/
@@ -61,8 +61,11 @@ old_project_entries:
     desc: The better people know you, the better they collaborate
 
 footer_entries:
-  - title: github
+  - title: GitHub
     url: https://github.com/bde-dev
+    
+  - title: Blog
+    url: https://bde-dev.github.io/blog
 
   #- title: homepage
   #  url: https://bde-dev.github.io
