@@ -61,12 +61,12 @@ old_project_entries:
     desc: The better people know you, the better they collaborate
 
 footer_entries:
-  - title: GitHub
-    url: https://github.com/bde-dev
-    
   - title: Blog
     url: https://bde-dev.github.io/blog
 
+  - title: GitHub
+    url: https://github.com/bde-dev
+    
   #- title: homepage
   #  url: https://bde-dev.github.io
 
