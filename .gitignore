@@ -1,0 +1,27 @@
+# Hugo files
+/public/
+/resources/
+/hugo_stats.json
+.hugo_build.lock
+
+# Node dependencies
+node_modules/
+package-lock.json
+npm-debug.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Git
+*.orig
+
+# Logs and temp
+*.log
+*.swp
+*.swo
+*~
