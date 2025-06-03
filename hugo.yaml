@@ -1,6 +1,6 @@
 baseURL: https://bde-dev.github.io/
 languageCode: en-us
-title: bde-dev
+title: Brad Evans
 theme: PaperMod
 pagination:
   pagerSize: 10
@@ -8,8 +8,8 @@ pagination:
 params:
   # Page mode
   homeInfoParams:
-    Title: "bde-dev site"
-    Content: "Welcome to bde-dev site"
+    Title: "Brad Evans"
+    Content: "I am a command line inhabitant passionate about software delivery correctness, efficiency and automation, system and app architecture, all in the context of cloud tech and Kubernetes."
 
   socialIcons:
     - name: GitHub
