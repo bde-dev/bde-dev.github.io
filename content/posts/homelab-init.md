@@ -42,6 +42,8 @@ As this is just the initial bootstrap, these are the only things that changed in
 1. `hosts` - set to the IP addresses of my nodes
 2. `ansible_user` - changed from `debian` to the primary user on my nodes
 3. `k3s_version` - I set this to the latest release at the time of installation [v1.33.1+k3s1](https://github.com/k3s-io/k3s/releases/tag/v1.33.1%2Bk3s1)
+4. `ansible_become_pass` - To handle passwordless SSH access from my `ansible-ontroller` to the nodes, I used `ssh-copy-id` and this `ansible_become_pass`
+5. `token` - Not using `Vagrant` so commented this var out
 4. `cluster_context` - set the name of the context to `homelab`
 
 ## Next Steps
