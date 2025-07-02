@@ -7,27 +7,43 @@ tags:
 ---
 # Installing Synology CSI Operator
 
+<!--toc:start-->
+- [Installing Synology CSI Operator](#installing-synology-csi-operator)
+  - [Exploration](#exploration)
+  - [Solution](#solution)
+  - [Synology Operator Installation](#synology-operator-installation)
+  - [Testing the Installation](#testing-the-installation)
+  - [Next Steps](#next-steps)
+    - [Backups](#backups)
+    - [Cloud Native PostgreSQL Operator Integration](#cloud-native-postgresql-operator-integration)
+    - [FluxCD Integration](#fluxcd-integration)
+<!--toc:end-->
+
 ## Exploration
 
-Spinning up and tearing down short-lived ephemeral deployments has been a fun learnign experience, but as I want to make some deployments more persistent, I need a way to provision long-lived storage.
+Spinning up and tearing down short-lived ephemeral deployments in my self-hosted `kubernetes` [homelab](https://github.com/bde-dev/homelab) has been a fun learning experience, but as I want to make some deployments more persistent, I need a way to provision long-lived storage.
 
-A key requirement is that if node02 goes down and a pod is re-scheduled to a different node, the data stored needs to persist somewhere accessible by the other nodes.
+A key requirement is that if `node02` goes down and a pod is re-scheduled to a different node, the data stored needs to persist somewhere accessible by the other nodes.
 
 ## Solution
 
 I picked up a `DS118` with a `2TB WD Red` from eBay for a decent price.
 
-There is a Synology Kubernetes Operator that can manage the provisioning of volumes for use by Kubernetes.
+There is a `Synology Kubernetes Operator` that can manage the provisioning of volumes for use by Kubernetes.
 
 > The [repo](https://github.com/SynologyOpenSource/synology-csi) contains a very good installation guide.
 
-This solution meets all my requirements, providing a bit of idempotency to my apps.
+This solution meets all my requirements, providing some redundancy to my apps.
 
 ## Synology Operator Installation
 
 The full installation of the operator is very simple:
 
-1. Copy `config/client-info-template.yml` to `configclient-info.yml` and fill out the synology details:
+1. Ensure the Synology has at least one volume created
+
+2. Clone the `synology-csi` [repo](https://github.com/SynologyOpenSource/synology-csi)
+
+3. Copy `config/client-info-template.yml` to `config/client-info.yml` and fill out the Synology details:
 
 ```yaml
 clients:
@@ -38,7 +54,7 @@ clients:
     password: <synology-password>
 ```
 
-2. Configure some storage classes in `deploy/kubernetes/v1.20`:
+4. Configure some storage classes in `deploy/kubernetes/v1.20`:
 
 ```yaml
 # storage-class.yaml
@@ -76,15 +92,15 @@ reclaimPolicy: Retain
 allowVolumeExpansion: true
 ```
 
-> The default storage class will work out of the box, but make sure to remember it does not set the new storage class to the default class to be used by the provisioner.
+> The default storage class will work out of the box, but remember it does not set the new Synology storage class as the default class to be used by the provisioner for any new volumes.
 
-2. Run the install script:
+5. Run the install script:
 
 ```bash
 ./scripts/deploy.sh run
 ```
 
-Verify everything installed okay:
+6. Verify everything installed okay:
 
 ```bash
 (ins)❯ k get all -n synology-csi
@@ -180,8 +196,22 @@ On the Synology UI:
 
 ![Synology LUN](/images/synology-lun.png)
 
-## FluxCD Integration
+## Next Steps
 
-I chose not to bring `synology-csi` into flux just yet, as it is one of those deployments i would prefer manual control over due to its non-idempotent nature.
+### Backups
 
-I have still defined the `kustomization.yaml` in case I decide to GitOps the synology in the future.
+The end-goal for backups is to remain outside of Synology DSM.
+
+As most of the apps I will use and create will have `cnpg` databases, the plan is to point the `backup` and `seed` properties of `cnpg` clusters to `Azure blob storage`.
+
+### Cloud Native PostgreSQL Operator Integration
+
+The next step for spinning up persistent deployments and creating cloud-native `dotnet` apps is creating `postgresql` databases with the Synology as the backing storage.
+
+I will need to explore if the default storage class annotation is enough for any new `cnpg` cluster to use Synology operator volumes automatically.
+
+### FluxCD Integration
+
+I chose not to bring `synology-csi` into flux just yet, as it is one of those deployments I would prefer manual control over due to its non-idempotent nature.
+
+I have still defined the `kustomization.yaml` in case I decide to GitOps the Synology in the future.
